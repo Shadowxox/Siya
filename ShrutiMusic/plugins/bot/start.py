@@ -1,25 +1,3 @@
-# Copyright (c) 2025 Nand Yaduwanshi <NoxxOP>
-# Location: Supaul, Bihar
-#
-# All rights reserved.
-#
-# This code is the intellectual property of Nand Yaduwanshi.
-# You are not allowed to copy, modify, redistribute, or use this
-# code for commercial or personal projects without explicit permission.
-#
-# Allowed:
-# - Forking for personal learning
-# - Submitting improvements via pull requests
-#
-# Not Allowed:
-# - Claiming this code as your own
-# - Re-uploading without credit or permission
-# - Selling or using commercially
-#
-# Contact for permissions:
-# Email: badboy809075@gmail.com
-
-
 import time
 import random
 
@@ -55,6 +33,9 @@ RANDOM_STICKERS = [
     "CAACAgUAAxkBAAEEnzRor880z_spEYEnEfyFXN55tNwydQACIxUAAosKEVUB8iqZMVYroR4E"
 ]
 
+# Random reactions list
+REACTIONS = ["👍", "🔥", "🥰", "😂", "🤩", "💯", "🎉", "😎", "❤️"]
+
 
 @app.on_message(filters.command(["start"]) & filters.private & ~BANNED_USERS)
 @LanguageStart
@@ -62,7 +43,11 @@ async def start_pm(client, message: Message, _):
     # Send random sticker first
     random_sticker = random.choice(RANDOM_STICKERS)
     await message.reply_sticker(sticker=random_sticker)
-    
+
+    # Add reactions
+    await message.react(emoji=random.choice(REACTIONS), big=True)
+    await message.react(emoji="❤️", big=True)
+
     await add_served_user(message.from_user.id)
     if len(message.text.split()) > 1:
         name = message.text.split(None, 1)[1]
@@ -71,8 +56,8 @@ async def start_pm(client, message: Message, _):
             return await message.reply_photo(
                 photo=config.START_IMG_URL,
                 caption=_["help_1"].format(config.SUPPORT_GROUP),
-                #protect_content=True,
                 reply_markup=keyboard,
+                has_spoiler=True
             )
         if name[0:3] == "sud":
             await sudoers_list(client=client, message=message, _=_)
@@ -113,6 +98,7 @@ async def start_pm(client, message: Message, _):
                 photo=thumbnail,
                 caption=searched_text,
                 reply_markup=key,
+                has_spoiler=True
             )
             if await is_on_off(2):
                 return await app.send_message(
@@ -126,6 +112,7 @@ async def start_pm(client, message: Message, _):
             photo=config.START_IMG_URL,
             caption=_["start_2"].format(message.from_user.mention, app.mention, UP, DISK, CPU, RAM),
             reply_markup=InlineKeyboardMarkup(out),
+            has_spoiler=True
         )
         if await is_on_off(2):
             return await app.send_message(
@@ -140,13 +127,18 @@ async def start_gp(client, message: Message, _):
     # Send random sticker first
     random_sticker = random.choice(RANDOM_STICKERS)
     await message.reply_sticker(sticker=random_sticker)
-    
+
+    # Add reactions
+    await message.react(emoji=random.choice(REACTIONS), big=True)
+    await message.react(emoji="❤️", big=True)
+
     out = start_panel(_)
     uptime = int(time.time() - _boot_)
     await message.reply_photo(
         photo=config.START_IMG_URL,
         caption=_["start_1"].format(app.mention, get_readable_time(uptime)),
         reply_markup=InlineKeyboardMarkup(out),
+        has_spoiler=True
     )
     return await add_served_chat(message.chat.id)
 
@@ -181,6 +173,10 @@ async def welcome(client, message: Message):
                 random_sticker = random.choice(RANDOM_STICKERS)
                 await message.reply_sticker(sticker=random_sticker)
 
+                # Add reactions
+                await message.react(emoji=random.choice(REACTIONS), big=True)
+                await message.react(emoji="❤️", big=True)
+
                 out = start_panel(_)
                 await message.reply_photo(
                     photo=config.START_IMG_URL,
@@ -191,20 +187,9 @@ async def welcome(client, message: Message):
                         app.mention,
                     ),
                     reply_markup=InlineKeyboardMarkup(out),
+                    has_spoiler=True
                 )
                 await add_served_chat(message.chat.id)
                 await message.stop_propagation()
         except Exception as ex:
             print(ex)
-
-
-# ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
-
-# ===========================================
-# ©️ 2025 Nand Yaduwanshi (aka @NoxxOP)
-# 🔗 GitHub : https://github.com/NoxxOP/ShrutiMusic
-# 📢 Telegram Channel : https://t.me/ShrutiBots
-# ===========================================
-
-
-# ❤️ Love From ShrutiBots
