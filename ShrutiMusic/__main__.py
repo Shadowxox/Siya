@@ -1,23 +1,3 @@
-# Copyright (c) 2025 Nand Yaduwanshi <NoxxOP>
-# Location: Supaul, Bihar
-#
-# All rights reserved.
-#
-# This code is the intellectual property of Nand Yaduwanshi.
-# You are not allowed to copy, modify, redistribute, or use this
-# code for commercial or personal projects without explicit permission.
-#
-# Allowed:
-# - Forking for personal learning
-# - Submitting improvements via pull requests
-#
-# Not Allowed:
-# - Claiming this code as your own
-# - Re-uploading without credit or permission
-# - Selling or using commercially
-#
-# Contact for permissions:
-# Email: badboy809075@gmail.com
 
 
 import asyncio
@@ -33,40 +13,40 @@ from ShrutiMusic.plugins import ALL_MODULES
 from ShrutiMusic.utils.database import get_banned_users, get_gbanned
 from config import BANNED_USERS
 
-# Bot Commands List
 COMMANDS = [
-    BotCommand("start", "🚀 Start bot"),
-    BotCommand("help", "❓ Help menu and Many More Management Commands"),
-    BotCommand("ping", "📡 Ping and system stats"),
-    BotCommand("play", "🎵 Start streaming the requested track"),
-    BotCommand("vplay", "📹 Start video streaming"),
-    BotCommand("playrtmps", "📺 Play Live Video"),
-    BotCommand("playforce", "⚠️ Force play audio track"),
-    BotCommand("vplayforce", "⚠️ Force play video track"),
-    BotCommand("pause", "⏸ Pause the stream"),
-    BotCommand("resume", "▶️ Resume the stream"),
-    BotCommand("skip", "⏭ Skip the current track"),
-    BotCommand("end", "🛑 End the stream"),
-    BotCommand("stop", "🛑 Stop the stream"),
-    BotCommand("queue", "📄 Show track queue"),
-    BotCommand("auth", "➕ Add a user to auth list"),
-    BotCommand("unauth", "➖ Remove a user from auth list"),
-    BotCommand("authusers", "👥 Show list of auth users"),
-    BotCommand("cplay", "📻 Channel audio play"),
-    BotCommand("cvplay", "📺 Channel video play"),
-    BotCommand("cplayforce", "🚨 Channel force audio play"),
-    BotCommand("cvplayforce", "🚨 Channel force video play"),
-    BotCommand("channelplay", "🔗 Connect group to channel"),
-    BotCommand("loop", "🔁 Enable/disable loop"),
-    BotCommand("stats", "📊 Bot stats"),
-    BotCommand("shuffle", "🔀 Shuffle the queue"),
-    BotCommand("seek", "⏩ Seek forward"),
-    BotCommand("seekback", "⏪ Seek backward"),
-    BotCommand("song", "🎶 Download song (mp3/mp4)"),
-    BotCommand("speed", "⏩ Adjust audio playback speed (group)"),
-    BotCommand("cspeed", "⏩ Adjust audio speed (channel)"),
-    BotCommand("tagall", "📢 Tag everyone"),
+    BotCommand("start", "🚀 ꜱᴛᴀʀᴛ ʙᴏᴛ"),
+    BotCommand("help", "❓ ʜᴇʟᴘ ᴍᴇɴᴜ ᴀɴᴅ ᴍᴀɴʏ ᴍᴏʀᴇ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ᴄᴏᴍᴍᴀɴᴅꜱ"),
+    BotCommand("ping", "📡 ᴘɪɴɢ ᴀɴᴅ ꜱʏꜱᴛᴇᴍ ꜱᴛᴀᴛꜱ"),
+    BotCommand("play", "🎵 ꜱᴛᴀʀᴛ ꜱᴛʀᴇᴀᴍɪɴɢ ᴛʜᴇ ʀᴇQᴜᴇꜱᴛᴇᴅ ᴛʀᴀᴄᴋ"),
+    BotCommand("vplay", "📹 ꜱᴛᴀʀᴛ ᴠɪᴅᴇᴏ ꜱᴛʀᴇᴀᴍɪɴɢ"),
+    BotCommand("playrtmps", "📺 ᴘʟᴀʏ ʟɪᴠᴇ ᴠɪᴅᴇᴏ"),
+    BotCommand("playforce", "⚠️ ꜰᴏʀᴄᴇ ᴘʟᴀʏ ᴀᴜᴅɪᴏ ᴛʀᴀᴄᴋ"),
+    BotCommand("vplayforce", "⚠️ ꜰᴏʀᴄᴇ ᴘʟᴀʏ ᴠɪᴅᴇᴏ ᴛʀᴀᴄᴋ"),
+    BotCommand("pause", "⏸ ᴘᴀᴜꜱᴇ ᴛʜᴇ ꜱᴛʀᴇᴀᴍ"),
+    BotCommand("resume", "▶️ ʀᴇꜱᴜᴍᴇ ᴛʜᴇ ꜱᴛʀᴇᴀᴍ"),
+    BotCommand("skip", "⏭ ꜱᴋɪᴘ ᴛʜᴇ ᴄᴜʀʀᴇɴᴛ ᴛʀᴀᴄᴋ"),
+    BotCommand("end", "🛑 ᴇɴᴅ ᴛʜᴇ ꜱᴛʀᴇᴀᴍ"),
+    BotCommand("stop", "🛑 ꜱᴛᴏᴘ ᴛʜᴇ ꜱᴛʀᴇᴀᴍ"),
+    BotCommand("queue", "📄 ꜱʜᴏᴡ ᴛʀᴀᴄᴋ Qᴜᴇᴜᴇ"),
+    BotCommand("auth", "➕ ᴀᴅᴅ ᴀ ᴜꜱᴇʀ ᴛᴏ ᴀᴜᴛʜ ʟɪꜱᴛ"),
+    BotCommand("unauth", "➖ ʀᴇᴍᴏᴠᴇ ᴀ ᴜꜱᴇʀ ꜰʀᴏᴍ ᴀᴜᴛʜ ʟɪꜱᴛ"),
+    BotCommand("authusers", "👥 ꜱʜᴏᴡ ʟɪꜱᴛ ᴏꜰ ᴀᴜᴛʜ ᴜꜱᴇʀꜱ"),
+    BotCommand("cplay", "📻 ᴄʜᴀɴɴᴇʟ ᴀᴜᴅɪᴏ ᴘʟᴀʏ"),
+    BotCommand("cvplay", "📺 ᴄʜᴀɴɴᴇʟ ᴠɪᴅᴇᴏ ᴘʟᴀʏ"),
+    BotCommand("cplayforce", "🚨 ᴄʜᴀɴɴᴇʟ ꜰᴏʀᴄᴇ ᴀᴜᴅɪᴏ ᴘʟᴀʏ"),
+    BotCommand("cvplayforce", "🚨 ᴄʜᴀɴɴᴇʟ ꜰᴏʀᴄᴇ ᴠɪᴅᴇᴏ ᴘʟᴀʏ"),
+    BotCommand("channelplay", "🔗 ᴄᴏɴɴᴇᴄᴛ ɢʀᴏᴜᴘ ᴛᴏ ᴄʜᴀɴɴᴇʟ"),
+    BotCommand("loop", "🔁 ᴇɴᴀʙʟᴇ/ᴅɪꜱᴀʙʟᴇ ʟᴏᴏᴘ"),
+    BotCommand("stats", "📊 ʙᴏᴛ ꜱᴛᴀᴛꜱ"),
+    BotCommand("shuffle", "🔀 ꜱʜᴜꜰꜰʟᴇ ᴛʜᴇ Qᴜᴇᴜᴇ"),
+    BotCommand("seek", "⏩ ꜱᴇᴇᴋ ꜰᴏʀᴡᴀʀᴅ"),
+    BotCommand("seekback", "⏪ ꜱᴇᴇᴋ ʙᴀᴄᴋᴡᴀʀᴅ"),
+    BotCommand("song", "🎶 ᴅᴏᴡɴʟᴏᴀᴅ ꜱᴏɴɢ (ᴍᴘ3/ᴍᴘ4)"),
+    BotCommand("speed", "⏩ ᴀᴅᴊᴜꜱᴛ ᴀᴜᴅɪᴏ ꜱᴘᴇᴇᴅ (ɢʀᴏᴜᴘ)"),
+    BotCommand("cspeed", "⏩ ᴀᴅᴊᴜꜱᴛ ᴀᴜᴅɪᴏ ꜱᴘᴇᴇᴅ (ᴄʜᴀɴɴᴇʟ)"),
+    BotCommand("tagall", "📢 ᴛᴀɢ ᴇᴠᴇʀʏᴏɴᴇ"),
 ]
+
 
 async def setup_bot_commands():
     """Setup bot commands during startup"""
@@ -140,13 +120,3 @@ if __name__ == "__main__":
     asyncio.get_event_loop().run_until_complete(init())
 
 
-# ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
-
-# ===========================================
-# ©️ 2025 Nand Yaduwanshi (aka @NoxxOP)
-# 🔗 GitHub : https://github.com/NoxxOP/ShrutiMusic
-# 📢 Telegram Channel : https://t.me/ShrutiBots
-# ===========================================
-
-
-# ❤️ Love From ShrutiBots 
